@@ -57,8 +57,10 @@ shinyServer(function(input, output) {
                     Value = "n", NodeID = "name",
                     NodeGroup = "Source_Group",
                     LinkGroup = "gender", 
-                    fontSize= 12, nodeWidth = 20,
                     units = "students",
+                    nodePadding = 75,
+                    fontSize= 12, nodeWidth = 20,
+                    
                     colourScale = "d3.scaleOrdinal().range(['#ef8a62','#67a9cf','#f7f7f7', '#a1dab4', '#a1dab4', '#31a354', '#006d2c'])") #First two colours are the links, last 5 are the nodes.
       })
     })
