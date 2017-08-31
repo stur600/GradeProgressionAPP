@@ -8,7 +8,8 @@
 #
 
 library(shiny)
-
+library(RCurl)
+library(networkD3)
 # Define UI for application that draws a histogram
 shinyUI(fluidPage(
   Network_df_NumberedNodes <- read.csv(file = "C:/Users/stur600/Documents/Network_df_NumberedNodes.csv"),
