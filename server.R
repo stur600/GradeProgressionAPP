@@ -16,7 +16,7 @@ shinyServer(function(input, output) {
   output$sankeyNetwork <- renderSankeyNetwork({
     
     # Load data for network links
-    Network_df_NumberedNodes <- read.csv(file = "C:/Users/stur600/Documents/Network_df_NumberedNodes.csv")
+    Network_df_NumberedNodes <- read.csv(file = "Network_df_NumberedNodes.csv")
     links = Network_df_NumberedNodes
         
     #Manually create nodes dataframe 
