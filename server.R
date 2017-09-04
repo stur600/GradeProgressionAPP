@@ -16,9 +16,18 @@ shinyServer(function(input, output) {
   output$sankeyNetwork <- renderSankeyNetwork({
     
     # Load data for network links
-    Network_df_NumberedNodes <- read.csv(file = "Network_df_NumberedNodes.csv")
-    links = Network_df_NumberedNodes
-        
+    Network_df_NumberedNodes <- read.csv(file = "Users/stur600/Documents/Network_df_NumberedNodes.csv")
+    female_prop_links <- read.csv(file = "Users/stur600/Documents/female_prop_links.csv")
+    male_prop_links <- read.csv(file = "Users/stur600/Documents/male_prop_links.csv")
+    male_links <- read.csv(file = "Users/stur600/Documents/male_links.csv")
+    female_links <- read.csv(file = "Users/stur600/Documents/female_links.csv")
+    
+    ifelse(input$dataset == "Raw Counts", links = Network_df_NumberedNodes, 
+         ifelse(input$dataset == "Female Counts", links = female_links,
+              ifelse(input$dataset == "Male Counts", links = male_links,
+                     ifelse(input$dataset == "Female Proportion", links= female_prop_links,
+                            ifelse(input$dataset == "Male Proportion", links = male_prop_links, NULL)))))
+    
     #Manually create nodes dataframe 
     nodes = data.frame("name" = c("GPE_Bottom", 
                                   "GPE_Middle", 
