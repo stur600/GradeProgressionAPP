@@ -1,0 +1,43 @@
+---
+title: "CSV to JSON"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+import test dataset to dataframe
+```{r}
+library(tidyverse)
+library(rjson)
+setwd("C:/Users/stur600/Documents/GitHub/gradeprogressionapp/GradeProgressionAPP")
+links <- read.csv("Network_df_NumberedNodes.csv")
+
+links <- links %>%
+  select(2,3,4,5)
+
+```
+get list of nodes - for now we will just get the numbers. This will be the first section of the json file
+```{r}
+nodes <- list(0:14)
+nodes
+links
+```
+make dataframe of links into list of rows.
+need function that outputs dataframe as:[[row1], [row2],... [row_n]]
+```{r}
+links_list <- 
+
+Nodes_Links <- c(nodes,links_list)
+```
+
+```{r}
+test_JSON <- toJSON(Nodes_Links)
+
+
+
+write(test_JSON, "test.json")
+```
+
